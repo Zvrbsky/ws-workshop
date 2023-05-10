@@ -17,6 +17,7 @@ export class AppGateway {
     ) {}
     @SubscribeMessage('send')
     handleEvent(@MessageBody() messageDto: SendMessageDto, @ConnectedSocket() socket: Socket): void {
+        console.log("Received message: ", messageDto);
         this.server.to(this.userService.get(messageDto.to)).emit('received', {from: socket.handshake.headers.nick, text: messageDto.text});
     }
 }
