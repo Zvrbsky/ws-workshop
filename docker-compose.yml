@@ -1,0 +1,7 @@
+version: "3"
+services:
+  nestjs-api:
+    image: nestjs-api
+    ports:
+        - "3000:3000"
+
